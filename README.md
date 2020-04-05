@@ -1,5 +1,8 @@
 # Exercicio Terraform
 
+# Repositório usado para desenvolvimento do desafio
+# https://github.com/fernandoramos1977/fiap-desafio-terraform.git
+
 Utilize o código da demo Count e faça as seguintes mudanças:
 
 1. Adicione estado remoto no S3
