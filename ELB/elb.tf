@@ -33,7 +33,7 @@ resource "aws_elb" "web" {
   name = "elb-${lookup(local.context_variables, "name")}"
 
   subnets         = data.aws_subnet_ids.all.ids
-  security_groups = ["${aws_security_group.allow1-ssh.id}"]
+  security_groups = ["${aws_security_group.allow-ssh.id}"]
 
   listener {
     instance_port     = 80
@@ -61,7 +61,7 @@ resource "aws_instance" "web" {
   count = var.elb_instances
 
   subnet_id              = "${random_shuffle.random_subnet.result[0]}"
-  vpc_security_group_ids = ["${aws_security_group.allow1-ssh.id}"]
+  vpc_security_group_ids = ["${aws_security_group.allow-ssh.id}"]
   key_name               = "${var.KEY_NAME}"
 
   provisioner "file" {
